@@ -13,6 +13,13 @@ local function digDownUntilClear()
     end
 end
 
+local function digUpUntilClear()
+    while turtle.detectDown() do
+        turtle.digUp()
+    end
+end
+
+
 local turtleHelper = require('turtlehelper')
 
 turtleHelper.StartTurtle(START_X, START_Y, START_Z, START_DIR)
@@ -21,6 +28,7 @@ turtleHelper.DumpState()
 digUntilClear()
 turtleHelper.Forward()
 digDownUntilClear()
+digUpUntilClear()
 turtleHelper.TurnRight()
 
 local distanceTravelled = 1
@@ -33,6 +41,7 @@ while distanceTravelled <= DESIRED_DISTANCE do
         digUntilClear()
         turtleHelper.Forward()
         digDownUntilClear()
+        digUpUntilClear()
         widthTravelled = widthTravelled + 1
     end
 
@@ -44,9 +53,10 @@ while distanceTravelled <= DESIRED_DISTANCE do
     end
 
     -- Dig first bit
-    turtle.dig()
+    digUntilClear()
     turtleHelper.Forward()
-    turtle.digDown()
+    digDownUntilClear()
+    digUpUntilClear()
     
     -- Turn to face row
     if distanceTravelled % 2 == 0 then
