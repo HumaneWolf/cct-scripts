@@ -26,7 +26,7 @@ turtleHelper.TurnRight()
 local distanceTravelled = 1
 local widthTravelled
 
-while distanceTravelled < DESIRED_DISTANCE do
+while distanceTravelled <= DESIRED_DISTANCE do
     widthTravelled = 1
     
     while widthTravelled < WIDTH do
