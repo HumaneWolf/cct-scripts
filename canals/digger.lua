@@ -6,6 +6,9 @@ local turtleHelper = require('turtlehelper')
 turtleHelper.StartTurtle(START_X, START_Y, START_Z, START_DIR)
 turtleHelper.DumpState()
 
+turtle.dig()
+turtleHelper.Forward()
+turtle.digDown()
 turtleHelper.TurnRight()
 
 local distanceTravelled = 0
