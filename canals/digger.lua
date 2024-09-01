@@ -1,5 +1,5 @@
 local START_X, START_Y, START_Z, START_DIR = 0, 0, 0, 'north'
-local DESIRED_DISTANCE, WIDTH = 2, 6
+local DESIRED_DISTANCE, WIDTH = tonumber(({ ... })[1]), 6
 
 local function digUntilClear()
     while turtle.detect() do
