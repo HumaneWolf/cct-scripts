@@ -2,6 +2,12 @@ PosX, PosY, PosZ = 0, 0, 0
 Facing = ''
 
 
+local function DumpState()
+    print('Position: '..PosX..', '..PosY..', '..PosZ)
+    print('Facing: '..Facing)
+    -- todo: Dump inventory
+end
+
 local function getFacingModifier()
     if Facing == 'north' then
         return 0, -1
@@ -23,6 +29,7 @@ local function executeOrWait(func)
         if ifany then
             print('Returned failure reason: '..ifany)
         end
+        DumpState()
         print('Function reported lack of success. Press enter to try again.')
         read()
         executeOrWait(func)
@@ -123,12 +130,6 @@ local function Down(distance)
         executeOrWait(turtle.down)
         PosY = PosY - 1
     end
-end
-
-local function DumpState()
-    print('Position: '..PosX..', '..PosY..', '..PosZ)
-    print('Facing: '..Facing)
-    -- todo: Dump inventory
 end
 
 return {
