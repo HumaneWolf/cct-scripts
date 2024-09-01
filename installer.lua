@@ -8,7 +8,7 @@ local systemDefs = {
     },
     ["canal:digger"] = {
         ["canal"] = "canals/digger.lua",
-        ["turtlehelper"] = "helpers/turtle.lua",
+        ["turtlehelper.lua"] = "helpers/turtle.lua",
     },
 }
 
