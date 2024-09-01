@@ -34,7 +34,7 @@ turtleHelper.TurnRight()
 local distanceTravelled = 0
 local widthTravelled
 
-while distanceTravelled <= DESIRED_DISTANCE do
+while distanceTravelled < DESIRED_DISTANCE do
     widthTravelled = 1
     
     while widthTravelled < WIDTH do
@@ -47,9 +47,9 @@ while distanceTravelled <= DESIRED_DISTANCE do
 
     -- Turn to next row
     if distanceTravelled % 2 == 0 then
-        turtleHelper.TurnRight()
-    else
         turtleHelper.TurnLeft()
+    else
+        turtleHelper.TurnRight()
     end
 
     -- Dig first bit
@@ -60,9 +60,9 @@ while distanceTravelled <= DESIRED_DISTANCE do
     
     -- Turn to face row
     if distanceTravelled % 2 == 0 then
-        turtleHelper.TurnRight()
-    else
         turtleHelper.TurnLeft()
+    else
+        turtleHelper.TurnRight()
     end
 
     distanceTravelled = distanceTravelled + 1
