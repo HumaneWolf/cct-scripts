@@ -32,6 +32,7 @@ local function executeOrWait(func)
         end
         DumpState()
         read()
+        turtle.refuel()
         executeOrWait(func)
     end
 end

@@ -50,9 +50,9 @@ while distanceTravelled <= DESIRED_DISTANCE do
     
     -- Turn to face row
     if distanceTravelled % 2 == 0 then
-        turtleHelper.TurnLeft()
-    else
         turtleHelper.TurnRight()
+    else
+        turtleHelper.TurnLeft()
     end
 
     distanceTravelled = distanceTravelled + 1
