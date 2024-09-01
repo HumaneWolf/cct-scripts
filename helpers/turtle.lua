@@ -26,11 +26,11 @@ end
 local function executeOrWait(func)
     local success, ifany = func()
     if success ~= true then
+        print('Function reported lack of success. Press enter to try again.')
         if ifany then
             print('Returned failure reason: '..ifany)
         end
         DumpState()
-        print('Function reported lack of success. Press enter to try again.')
         read()
         executeOrWait(func)
     end
