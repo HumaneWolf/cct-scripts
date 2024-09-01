@@ -37,6 +37,7 @@ local widthTravelled
 while distanceTravelled < DESIRED_DISTANCE do
     widthTravelled = 1
     
+    -- Dig row
     while widthTravelled < WIDTH do
         digUntilClear()
         turtleHelper.Forward()
