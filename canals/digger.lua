@@ -31,7 +31,7 @@ digDownUntilClear()
 digUpUntilClear()
 turtleHelper.TurnRight()
 
-local distanceTravelled = 1
+local distanceTravelled = 0
 local widthTravelled
 
 while distanceTravelled <= DESIRED_DISTANCE do
