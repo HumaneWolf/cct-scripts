@@ -19,7 +19,7 @@ end
 
 local function executeOrWait(func)
     local success, ifany = func()
-    if !success then
+    if success ~= true then
         if ifany then
             print('Returned failure reason: '..ifany)
         end
