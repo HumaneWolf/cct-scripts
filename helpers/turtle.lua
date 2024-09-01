@@ -91,6 +91,7 @@ local function Forward(distance)
         local modX, modZ = getFacingModifier()
         PosX = PosX + modX
         PosZ = PosZ + modZ
+        moved = moved + 1
     end
 end
 
@@ -105,6 +106,7 @@ local function Back(distance)
         local modX, modZ = getFacingModifier()
         PosX = PosX + (modX * -1)
         PosZ = PosZ + (modZ * -1)
+        moved = moved + 1
     end
 end
 
@@ -117,6 +119,7 @@ local function Up(distance)
     while moved < distance do
         executeOrWait(turtle.up)
         PosY = PosY + 1
+        moved = moved + 1
     end
 end
 
@@ -129,6 +132,7 @@ local function Down(distance)
     while moved < distance do
         executeOrWait(turtle.down)
         PosY = PosY - 1
+        moved = moved + 1
     end
 end
 

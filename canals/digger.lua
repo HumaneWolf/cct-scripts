@@ -1,5 +1,5 @@
 local START_X, START_Y, START_Z, START_DIR = 0, 0, 0, 'north'
-local DESIRED_DISTANCE, WIDTH = 10, 6
+local DESIRED_DISTANCE, WIDTH = 2, 6
 
 local function digUntilClear()
     while turtle.detect() do
@@ -23,13 +23,13 @@ turtleHelper.Forward()
 digDownUntilClear()
 turtleHelper.TurnRight()
 
-local distanceTravelled = 0
+local distanceTravelled = 1
 local widthTravelled
 
 while distanceTravelled <= DESIRED_DISTANCE do
-    widthTravelled = 0
+    widthTravelled = 1
     
-    while widthTravelled < WIDTH do
+    while widthTravelled <= WIDTH do
         digUntilClear()
         turtleHelper.Forward()
         digDownUntilClear()
