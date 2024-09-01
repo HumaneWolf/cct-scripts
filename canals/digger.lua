@@ -1,14 +1,26 @@
 local START_X, START_Y, START_Z, START_DIR = 0, 0, 0, 'north'
 local DESIRED_DISTANCE, WIDTH = 10, 6
 
+local function digUntilClear()
+    while turtle.detect() do
+        turtle.dig()
+    end
+end
+
+local function digDownUntilClear()
+    while turtle.detectDown() do
+        turtle.digDown()
+    end
+end
+
 local turtleHelper = require('turtlehelper')
 
 turtleHelper.StartTurtle(START_X, START_Y, START_Z, START_DIR)
 turtleHelper.DumpState()
 
-turtle.dig()
+digUntilClear()
 turtleHelper.Forward()
-turtle.digDown()
+digDownUntilClear()
 turtleHelper.TurnRight()
 
 local distanceTravelled = 0
@@ -17,10 +29,10 @@ local widthTravelled
 while distanceTravelled <= DESIRED_DISTANCE do
     widthTravelled = 0
     
-    while widthTravelled <= WIDTH do
-        turtle.dig()
+    while widthTravelled < WIDTH do
+        digUntilClear()
         turtleHelper.Forward()
-        turtle.digDown()
+        digDownUntilClear()
         widthTravelled = widthTravelled + 1
     end
 
@@ -44,4 +56,5 @@ while distanceTravelled <= DESIRED_DISTANCE do
     end
 
     distanceTravelled = distanceTravelled + 1
+    print('Distance: '..distanceTravelled..'/'..DESIRED_DISTANCE)
 end
