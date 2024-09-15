@@ -86,4 +86,10 @@ while true do -- Move and check loop
         currentHeight = currentHeight - 1
     end
 end
+
+for item, count in pairs(currentIndex) do
+    print(item..': '..count)
+end
+
+currentIndex = {}
 --end
