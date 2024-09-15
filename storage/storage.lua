@@ -22,6 +22,19 @@ local function countChest(direction, index)
     return true, index
 end
 
+local function executeOrWait(func)
+    local success, ifany = func()
+    if success ~= true then
+        print('Function reported lack of success. Press enter to try again.')
+        if ifany then
+            print('Returned failure reason: '..ifany)
+        end
+        read()
+        turtle.refuel()
+        executeOrWait(func)
+    end
+end
+
 
 -- Main
 local currentHeight = 1
@@ -41,35 +54,35 @@ while true do -- Move and check loop
         print('Loop done')
         turtle.turnLeft()
         turtle.turnLeft()
-        turtle.forward()
+        executeOrWait(turtle.forward)
         break
     elseif movement == 1 and (currentHeight == HEIGHT or turtle.detectUp()) then -- If done with column
         if turtle.detect() then
             print('Cannot move forward.')
             os.exit(100, true)
         end
-        turtle.forward()
+        executeOrWait(turtle.forward)
         movement = -1
     elseif movement == -1 and (currentHeight == 1 or turtle.detectDown()) then
         if turtle.detect() then
             print('Cannot move forward.')
             os.exit(100, true)
         end
-        turtle.forward()
+        executeOrWait(turtle.forward)
         movement = 1
     elseif movement == 1 then
         if turtle.detectUp() then
             print('Cannot move up.')
             os.exit(100, true)
         end
-        turtle.up()
+        executeOrWait(turtle.up)
         currentHeight = currentHeight + 1
     elseif movement == -1 then
         if turtle.detectDown() then
             print('Cannot move down.')
             os.exit(100, true)
         end
-        turtle.down()
+        executeOrWait(turtle.down)
         currentHeight = currentHeight - 1
     end
 end
