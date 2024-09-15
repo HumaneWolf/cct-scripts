@@ -18,6 +18,7 @@ local function countChest(direction, index)
         end
         index[item.name] = index[item.name] + item.count
     end
+    return true, index
 end
 
 
