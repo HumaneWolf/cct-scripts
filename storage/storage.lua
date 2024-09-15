@@ -9,6 +9,7 @@ local function countChest(direction, index)
         print('No inventory found to the '..direction)
         return false, index
     end
+    print('Found inventory to the '..direction)
 
     local items = inv.list()
     for slot, item in pairs(items) do
