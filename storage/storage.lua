@@ -51,11 +51,6 @@ while true do -- Main loop
 
         -- Find direction and move on
         if hasChestLeft == false and hasChestRight == false then
-            print('Loop done. Will pause for a bit.')
-            turtle.turnLeft()
-            turtle.turnLeft()
-            os.sleep(60)
-            executeOrWait(turtle.forward)
             break
         elseif movement == 1 and (currentHeight == HEIGHT or turtle.detectUp()) then -- If done with column
             if turtle.detect() then
@@ -91,6 +86,13 @@ while true do -- Main loop
     for item, count in pairs(currentIndex) do
         print(item..': '..count)
     end
+
+    print('Reached end of chest row. Will pause for a bit.')
+    turtle.turnLeft()
+    turtle.turnLeft()
+    -- TODO: Metrics
+    os.sleep(60)
+    executeOrWait(turtle.forward)
 
     currentIndex = {}
 end
